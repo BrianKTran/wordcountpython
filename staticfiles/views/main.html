@@ -1,0 +1,26 @@
+ <form name="textform" ng-submit="accepttext(textform)" novalidate>
+    <div class="form-group">
+      <label >Enter your words:</label>
+      <textarea class="form-control" rows="5" name="findwords"class="form-control" ng-model="textdata.textenter" required></textarea> 
+      <p ng-show="textform.findwords.$invalid && !textform.findwords.$pristine" class="help-block">
+    </div>
+     <button type="submit" class="btn btn-primary" ng-disabled="textform.$invalid" >Submit</button>
+ </form>
+<div>&nbsp</div>
+<div ng-show="responded">
+       <div class="form-group">
+ 		 	<label for="search" class="col-lg-2">Search your word:</label>
+    		<div class="col-lg-10	">
+     		 <input type="text" class="form-control" name="searchname" id="search" ng-model="searchtext">
+   			</div>
+		</div>
+</div>
+ <div>&nbsp</div>
+ <table class= "table table-hover">
+ 	<tbody>
+ 		<tr ng-repeat="x in responded | filter:searchtext">
+ 		<td>{{x.tag}}</td>
+ 		<td>{{x.value}}</td>
+ 		</tr>
+ 	</tbody>
+ </table>
